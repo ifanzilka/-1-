@@ -19,10 +19,10 @@ void GameField::CreateDblBuff()
 {
 	BufferedGraphicsContext^ bgc =
 		BufferedGraphicsManager::Current;
-	bg = bgc->Allocate(mainG, Rectangle(0, 0, w, h));//буфер
+	bg = bgc->Allocate(mainG, Rectangle(0, 0, w, h));//Р±СѓС„РµСЂ
 	g = bg->Graphics;
 }
-Point GameField::GetCell(int x, int y) //по точке определяет номер клетки
+Point GameField::GetCell(int x, int y) //РїРѕ С‚РѕС‡РєРµ РѕРїСЂРµРґРµР»СЏРµС‚ РЅРѕРјРµСЂ РєР»РµС‚РєРё
 {
 	Box b(w, h, Rows, Cols);
 	Point p(-1, -1);
@@ -33,18 +33,18 @@ Point GameField::GetCell(int x, int y) //по точке определяет номер клетки
 		y < b.h + b.dy
 		)
 	{
-		p.Y = (x - b.dx) / b.wsz;//получаем номер строки
-		p.X = (y - b.dy) / b.hsz;//получаем номер столбца
+		p.Y = (x - b.dx) / b.wsz;//РїРѕР»СѓС‡Р°РµРј РЅРѕРјРµСЂ СЃС‚СЂРѕРєРё
+		p.X = (y - b.dy) / b.hsz;//РїРѕР»СѓС‡Р°РµРј РЅРѕРјРµСЂ СЃС‚РѕР»Р±С†Р°
 	}
 	return p;
 }
 void GameField::PaintCell(Rectangle r,bool status,bool nextstatus)
 {
-	LinearGradientBrush^ lb;//кисть
+	LinearGradientBrush^ lb;//РєРёСЃС‚СЊ
 	if (status)
 	{
 	 if (!nextstatus) {
-		lb = gcnew LinearGradientBrush(//прямоугольник в светло оранжевый
+		lb = gcnew LinearGradientBrush(//РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РІ СЃРІРµС‚Р»Рѕ РѕСЂР°РЅР¶РµРІС‹Р№
 			r,
 			Color::Red,
 			Color::Black,
@@ -54,7 +54,7 @@ void GameField::PaintCell(Rectangle r,bool status,bool nextstatus)
 
 	 }
 	 else {
-		 lb = gcnew LinearGradientBrush(//прямоугольник в светло оранжевый
+		 lb = gcnew LinearGradientBrush(//РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє РІ СЃРІРµС‚Р»Рѕ РѕСЂР°РЅР¶РµРІС‹Р№
 			 r,
 			 Color::OrangeRed,
 			 Color::Coral,
@@ -65,16 +65,16 @@ void GameField::PaintCell(Rectangle r,bool status,bool nextstatus)
 	}
 	else
 	{
-		lb = gcnew LinearGradientBrush(//прямоугольник закрашенниый в серый
+		lb = gcnew LinearGradientBrush(//РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє Р·Р°РєСЂР°С€РµРЅРЅРёС‹Р№ РІ СЃРµСЂС‹Р№
 			r,
 			Color::LightGray,
 			Color::Gray,
 			90
 		);
 	}
-	Threading::Monitor::Enter(lock);//войти в поток
+	Threading::Monitor::Enter(lock);//РІРѕР№С‚Рё РІ РїРѕС‚РѕРє
 	g->FillRectangle(lb, r);
-	Threading::Monitor::Exit(lock);//выйти из потока
+	Threading::Monitor::Exit(lock);//РІС‹Р№С‚Рё РёР· РїРѕС‚РѕРєР°
 
 }
 void GameField::Start()
@@ -111,24 +111,24 @@ void GameField::Paint()
 		for (int j = b.dy; j < b.h + b.dy; j += b.hsz)
 		{
 
-			Rectangle r(i + 1, j + 1, b.wsz - 1, b.hsz - 1);//получил прямоугольник
-			Point cell = GetCell(i, j);//номер прямоугольник
-			bool status = Field[cell.X, cell.Y];//узнал статус прямоугольника с этим номером
+			Rectangle r(i + 1, j + 1, b.wsz - 1, b.hsz - 1);//РїРѕР»СѓС‡РёР» РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+			Point cell = GetCell(i, j);//РЅРѕРјРµСЂ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРє
+			bool status = Field[cell.X, cell.Y];//СѓР·РЅР°Р» СЃС‚Р°С‚СѓСЃ РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєР° СЃ СЌС‚РёРј РЅРѕРјРµСЂРѕРј
 			bool nextstatus = NextField[cell.X, cell.Y];
-			PaintCell(r, status,nextstatus);//закрасил
+			PaintCell(r, status,nextstatus);//Р·Р°РєСЂР°СЃРёР»
 		}
 	}
 	Threading::Monitor::Enter(lock);
-	bg->Render();//вывео в панели
+	bg->Render();//РІС‹РІРµРѕ РІ РїР°РЅРµР»Рё
 	Threading::Monitor::Exit(lock);
 }
 void GameField::ChangeState(int x, int y)
 {
-	Point p = GetCell(x, y);//по точке орпедеят номер клетки
+	Point p = GetCell(x, y);//РїРѕ С‚РѕС‡РєРµ РѕСЂРїРµРґРµСЏС‚ РЅРѕРјРµСЂ РєР»РµС‚РєРё
 	if (p.X != -1 && p.Y != -1)
 	{
 		Field[p.X, p.Y] = !Field[p.X, p.Y];
-		Paint();//перерисовка если изменили
+		Paint();//РїРµСЂРµСЂРёСЃРѕРІРєР° РµСЃР»Рё РёР·РјРµРЅРёР»Рё
 	}
 }
 void GameField::NextGeneration()

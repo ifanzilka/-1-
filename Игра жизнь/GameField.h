@@ -7,21 +7,21 @@ using namespace System::Drawing;
 ref class GameField :public GameModel
 {
 	Object^ lock = gcnew Object();
-	Graphics^ mainG;//Основной (видимый) холст
-	Graphics^ g; //Холст в памяти
-	BufferedGraphics^ bg;//буффер
+	Graphics^ mainG;//РћСЃРЅРѕРІРЅРѕР№ (РІРёРґРёРјС‹Р№) С…РѕР»СЃС‚
+	Graphics^ g; //РҐРѕР»СЃС‚ РІ РїР°РјСЏС‚Рё
+	BufferedGraphics^ bg;//Р±СѓС„С„РµСЂ
 	int w, h;
-	void CreateDblBuff();//определяем буфер
+	void CreateDblBuff();//РѕРїСЂРµРґРµР»СЏРµРј Р±СѓС„РµСЂ
 	Point GetCell(int i, int j);
 	void PaintCell(Rectangle r, bool status,bool nextstatus);
 	void Start();
 	bool started = false;
-	Threading::Thread^ t;//поток старт потока t
+	Threading::Thread^ t;//РїРѕС‚РѕРє СЃС‚Р°СЂС‚ РїРѕС‚РѕРєР° t
 	value struct Box
 	{
-		int dx, dy; //Сдвиг поля от начала координат
-		int w, h; //Полезная ширина и высота поля
-		int wsz, hsz;// Ширина и высота клеток на поле
+		int dx, dy; //РЎРґРІРёРі РїРѕР»СЏ РѕС‚ РЅР°С‡Р°Р»Р° РєРѕРѕСЂРґРёРЅР°С‚
+		int w, h; //РџРѕР»РµР·РЅР°СЏ С€РёСЂРёРЅР° Рё РІС‹СЃРѕС‚Р° РїРѕР»СЏ
+		int wsz, hsz;// РЁРёСЂРёРЅР° Рё РІС‹СЃРѕС‚Р° РєР»РµС‚РѕРє РЅР° РїРѕР»Рµ
 		Box(int w, int h, int rows, int cols)
 		{
 			wsz = w / cols;
@@ -36,14 +36,14 @@ public:
 	int speed;
 	GameField(int w, int h, Graphics^ g);
 	GameField(int rows, int cols, int w, int h, Graphics^ g);
-	//Прорисовка текущего состояния игрового поля
-	void Paint();//рисование поля
-	void ChangeState(int x, int y);//изменить статус
-	void NextGeneration() override;//переоперделение
+	//РџСЂРѕСЂРёСЃРѕРІРєР° С‚РµРєСѓС‰РµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ РёРіСЂРѕРІРѕРіРѕ РїРѕР»СЏ
+	void Paint();//СЂРёСЃРѕРІР°РЅРёРµ РїРѕР»СЏ
+	void ChangeState(int x, int y);//РёР·РјРµРЅРёС‚СЊ СЃС‚Р°С‚СѓСЃ
+	void NextGeneration() override;//РїРµСЂРµРѕРїРµСЂРґРµР»РµРЅРёРµ
 	void StartLife();
 	void StopLife();
 	//void SetSpeed(int value);
 	~GameField();
-	void Update(int width, int height, Graphics^ graphics);//обновленное поле
+	void Update(int width, int height, Graphics^ graphics);//РѕР±РЅРѕРІР»РµРЅРЅРѕРµ РїРѕР»Рµ
 };
 

@@ -2,40 +2,40 @@
 
 ref class GameModel
 {
-	int cols, rows;//количсетво клеток по столбцам и строкам
-	array <bool, 2> ^field;//массив статусов клеток
+	int cols, rows;//РєРѕР»РёС‡СЃРµС‚РІРѕ РєР»РµС‚РѕРє РїРѕ СЃС‚РѕР»Р±С†Р°Рј Рё СЃС‚СЂРѕРєР°Рј
+	array <bool, 2> ^field;//РјР°СЃСЃРёРІ СЃС‚Р°С‚СѓСЃРѕРІ РєР»РµС‚РѕРє
 	
-	void RecreateArray();//пересоздание массива
-	bool GetNextStatus(int i, int j);//статус клетки на след уровне(если 2 или три живые рядом то она живая)
-	bool GetNeighbourStatus(int i, int j, int k);//стаутс соседа под номером "k" с данной
-	int GetAliveNeighbourCount(int i, int j);//получить кол-во живых соседей
+	void RecreateArray();//РїРµСЂРµСЃРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР°
+	bool GetNextStatus(int i, int j);//СЃС‚Р°С‚СѓСЃ РєР»РµС‚РєРё РЅР° СЃР»РµРґ СѓСЂРѕРІРЅРµ(РµСЃР»Рё 2 РёР»Рё С‚СЂРё Р¶РёРІС‹Рµ СЂСЏРґРѕРј С‚Рѕ РѕРЅР° Р¶РёРІР°СЏ)
+	bool GetNeighbourStatus(int i, int j, int k);//СЃС‚Р°СѓС‚СЃ СЃРѕСЃРµРґР° РїРѕРґ РЅРѕРјРµСЂРѕРј "k" СЃ РґР°РЅРЅРѕР№
+	int GetAliveNeighbourCount(int i, int j);//РїРѕР»СѓС‡РёС‚СЊ РєРѕР»-РІРѕ Р¶РёРІС‹С… СЃРѕСЃРµРґРµР№
 public:
-	virtual  void NextGeneration();//чтобы смогли переопределить
-	property int Cols//можем получить и мзменить количество клеток по столбцам 
+	virtual  void NextGeneration();//С‡С‚РѕР±С‹ СЃРјРѕРіР»Рё РїРµСЂРµРѕРїСЂРµРґРµР»РёС‚СЊ
+	property int Cols//РјРѕР¶РµРј РїРѕР»СѓС‡РёС‚СЊ Рё РјР·РјРµРЅРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»РµС‚РѕРє РїРѕ СЃС‚РѕР»Р±С†Р°Рј 
 	{
-		int get()//получить
+		int get()//РїРѕР»СѓС‡РёС‚СЊ
 		{
 			return cols;
 		}
-		void set(int value)//задать
+		void set(int value)//Р·Р°РґР°С‚СЊ
 		{
 			SetSize(rows, value);
 		}
 	}
-	property int Rows//можем получить и мзменить количество клеток по строкам
+	property int Rows//РјРѕР¶РµРј РїРѕР»СѓС‡РёС‚СЊ Рё РјР·РјРµРЅРёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»РµС‚РѕРє РїРѕ СЃС‚СЂРѕРєР°Рј
 	{
-		int get()//получить
+		int get()//РїРѕР»СѓС‡РёС‚СЊ
 		{
 			return rows;
 		}
-		void set(int value)//задать
+		void set(int value)//Р·Р°РґР°С‚СЊ
 		{
 			SetSize(value, cols);
 		}
 	}
 	property bool Field[int, int]
 	{
-		bool get(int i, int j)//получаем статус клетки
+		bool get(int i, int j)//РїРѕР»СѓС‡Р°РµРј СЃС‚Р°С‚СѓСЃ РєР»РµС‚РєРё
 		{
 			if (i >= 0 && j >= 0 && i < rows && j < cols)
 			{
@@ -43,7 +43,7 @@ public:
 			}
 			return false;
 		}
-		void set(int i, int j, bool v)//задаем статут
+		void set(int i, int j, bool v)//Р·Р°РґР°РµРј СЃС‚Р°С‚СѓС‚
 		{
 			if (i >= 0 && j >= 0 && i < rows && j < cols)
 			{
@@ -53,7 +53,7 @@ public:
 	}
 		property bool NextField[int, int]
 	{
-		bool get(int i, int j)//получаем статус клетки
+		bool get(int i, int j)//РїРѕР»СѓС‡Р°РµРј СЃС‚Р°С‚СѓСЃ РєР»РµС‚РєРё
 		{
 			if (i >= 0 && j >= 0 && i < rows && j < cols)
 			{
@@ -62,8 +62,8 @@ public:
 			return false;
 		} 
 	}
-	GameModel();//конструктор без параметров
-	GameModel(int rows, int cols);//конструктор с параметрами
-	void SetSize(int rows, int cols);//задать размер
+	GameModel();//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Р±РµР· РїР°СЂР°РјРµС‚СЂРѕРІ
+	GameModel(int rows, int cols);//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃ РїР°СЂР°РјРµС‚СЂР°РјРё
+	void SetSize(int rows, int cols);//Р·Р°РґР°С‚СЊ СЂР°Р·РјРµСЂ
 };
 

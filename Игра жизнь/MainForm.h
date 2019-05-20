@@ -15,7 +15,7 @@ namespace WindowsForms {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Сводка для MainForm
+	/// РЎРІРѕРґРєР° РґР»СЏ MainForm
 	/// </summary>
 	public ref class MainForm : public System::Windows::Forms::Form
 	{
@@ -28,14 +28,14 @@ namespace WindowsForms {
 				panel1->Height,
 				panel1->CreateGraphics()
 			);
-			openFileDialog1->Filter = "Text files(*.txt)|*.txt";//чтобы был только текстовый формат
+			openFileDialog1->Filter = "Text files(*.txt)|*.txt";//С‡С‚РѕР±С‹ Р±С‹Р» С‚РѕР»СЊРєРѕ С‚РµРєСЃС‚РѕРІС‹Р№ С„РѕСЂРјР°С‚
 			saveFileDialog1->Filter = "Text files(*.txt)|*.txt";
 
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// РћСЃРІРѕР±РѕРґРёС‚СЊ РІСЃРµ РёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ СЂРµСЃСѓСЂСЃС‹.
 		/// </summary>
 		~MainForm()
 		{
@@ -64,14 +64,14 @@ namespace WindowsForms {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// РћР±СЏР·Р°С‚РµР»СЊРЅР°СЏ РїРµСЂРµРјРµРЅРЅР°СЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°.
 		/// </summary>
 		System::ComponentModel::Container ^components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
-		/// Требуемый метод для поддержки конструктора — не изменяйте 
-		/// содержимое этого метода с помощью редактора кода.
+		/// РўСЂРµР±СѓРµРјС‹Р№ РјРµС‚РѕРґ РґР»СЏ РїРѕРґРґРµСЂР¶РєРё РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° вЂ” РЅРµ РёР·РјРµРЅСЏР№С‚Рµ 
+		/// СЃРѕРґРµСЂР¶РёРјРѕРµ СЌС‚РѕРіРѕ РјРµС‚РѕРґР° СЃ РїРѕРјРѕС‰СЊСЋ СЂРµРґР°РєС‚РѕСЂР° РєРѕРґР°.
 		/// </summary>
 		void InitializeComponent(void)
 		{
@@ -135,7 +135,7 @@ namespace WindowsForms {
 			this->groupBox1->Size = System::Drawing::Size(877, 146);
 			this->groupBox1->TabIndex = 1;
 			this->groupBox1->TabStop = false;
-			this->groupBox1->Text = L"Управление";
+			this->groupBox1->Text = L"РЈРїСЂР°РІР»РµРЅРёРµ";
 			// 
 			// btnSave
 			// 
@@ -143,7 +143,7 @@ namespace WindowsForms {
 			this->btnSave->Name = L"btnSave";
 			this->btnSave->Size = System::Drawing::Size(102, 32);
 			this->btnSave->TabIndex = 11;
-			this->btnSave->Text = L"Сохранить";
+			this->btnSave->Text = L"РЎРѕС…СЂР°РЅРёС‚СЊ";
 			this->btnSave->UseVisualStyleBackColor = true;
 			this->btnSave->Click += gcnew System::EventHandler(this, &MainForm::btnSave_Click);
 			// 
@@ -153,7 +153,7 @@ namespace WindowsForms {
 			this->btnLoad->Name = L"btnLoad";
 			this->btnLoad->Size = System::Drawing::Size(108, 32);
 			this->btnLoad->TabIndex = 10;
-			this->btnLoad->Text = L"Загрузить";
+			this->btnLoad->Text = L"Р—Р°РіСЂСѓР·РёС‚СЊ";
 			this->btnLoad->UseVisualStyleBackColor = true;
 			this->btnLoad->Click += gcnew System::EventHandler(this, &MainForm::btnLoad_Click);
 			// 
@@ -163,7 +163,7 @@ namespace WindowsForms {
 			this->btnNextStep->Name = L"btnNextStep";
 			this->btnNextStep->Size = System::Drawing::Size(123, 29);
 			this->btnNextStep->TabIndex = 9;
-			this->btnNextStep->Text = L"Следующий шаг";
+			this->btnNextStep->Text = L"РЎР»РµРґСѓСЋС‰РёР№ С€Р°Рі";
 			this->btnNextStep->UseVisualStyleBackColor = true;
 			this->btnNextStep->Click += gcnew System::EventHandler(this, &MainForm::btnNextStep_Click);
 			// 
@@ -173,7 +173,7 @@ namespace WindowsForms {
 			this->start->Name = L"start";
 			this->start->Size = System::Drawing::Size(108, 29);
 			this->start->TabIndex = 8;
-			this->start->Text = L"Старт";
+			this->start->Text = L"РЎС‚Р°СЂС‚";
 			this->start->UseVisualStyleBackColor = true;
 			this->start->Click += gcnew System::EventHandler(this, &MainForm::start_Click);
 			// 
@@ -183,7 +183,7 @@ namespace WindowsForms {
 			this->stop->Name = L"stop";
 			this->stop->Size = System::Drawing::Size(89, 29);
 			this->stop->TabIndex = 7;
-			this->stop->Text = L"Стоп";
+			this->stop->Text = L"РЎС‚РѕРї";
 			this->stop->UseVisualStyleBackColor = true;
 			this->stop->Visible = false;
 			this->stop->Click += gcnew System::EventHandler(this, &MainForm::stop_Click);
@@ -205,7 +205,7 @@ namespace WindowsForms {
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(73, 17);
 			this->label4->TabIndex = 5;
-			this->label4->Text = L"Скорость:";
+			this->label4->Text = L"РЎРєРѕСЂРѕСЃС‚СЊ:";
 			// 
 			// numericUpDown2
 			// 
@@ -234,7 +234,7 @@ namespace WindowsForms {
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(154, 17);
 			this->label3->TabIndex = 2;
-			this->label3->Text = L"Размер по вертикали:";
+			this->label3->Text = L"Р Р°Р·РјРµСЂ РїРѕ РІРµСЂС‚РёРєР°Р»Рё:";
 			// 
 			// label2
 			// 
@@ -243,7 +243,7 @@ namespace WindowsForms {
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(204, 17);
 			this->label2->TabIndex = 1;
-			this->label2->Text = L"Размер поля по горизонтали:";
+			this->label2->Text = L"Р Р°Р·РјРµСЂ РїРѕР»СЏ РїРѕ РіРѕСЂРёР·РѕРЅС‚Р°Р»Рё:";
 			// 
 			// label1
 			// 
@@ -268,7 +268,7 @@ namespace WindowsForms {
 			this->MinimumSize = System::Drawing::Size(600, 400);
 			this->Name = L"MainForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Игра\"Жизнь\"";
+			this->Text = L"РРіСЂР°\"Р–РёР·РЅСЊ\"";
 			this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &MainForm::MainForm_FormClosed);
 			this->Resize += gcnew System::EventHandler(this, &MainForm::MainForm_Resize);
 			this->groupBox1->ResumeLayout(false);
@@ -345,7 +345,7 @@ namespace WindowsForms {
 		}
 
 	}
-	private: System::Void numericUpDown1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {//строки
+	private: System::Void numericUpDown1_ValueChanged(System::Object^  sender, System::EventArgs^  e) {//СЃС‚СЂРѕРєРё
 
 		fld->StopLife();
 
@@ -376,8 +376,8 @@ namespace WindowsForms {
 				}
 
 			}
-			System::IO::File::WriteAllText(saveFileDialog1->FileName, mas);//сохраняет из массива в файл который выбрали
-			MessageBox::Show("Файл сохранен");
+			System::IO::File::WriteAllText(saveFileDialog1->FileName, mas);//СЃРѕС…СЂР°РЅСЏРµС‚ РёР· РјР°СЃСЃРёРІР° РІ С„Р°Р№Р» РєРѕС‚РѕСЂС‹Р№ РІС‹Р±СЂР°Р»Рё
+			MessageBox::Show("Р¤Р°Р№Р» СЃРѕС…СЂР°РЅРµРЅ");
 		}
 		catch (...)
 		{
@@ -395,10 +395,10 @@ private: System::Void btnLoad_Click(System::Object^  sender, System::EventArgs^ 
 	try {
 		fld->StopLife();
 		openFileDialog1->ShowDialog();
-		String^ fileText = System::IO::File::ReadAllText(openFileDialog1->FileName);//открывает файл считвает все изаерываеь
-		int x = fileText->IndexOf('.');//индекс первого входжения
-		int y = fileText->LastIndexOf('.');//индекс полследнего вхождения
-		int c = Int32::Parse(fileText->Substring(0, x));//подстрока
+		String^ fileText = System::IO::File::ReadAllText(openFileDialog1->FileName);//РѕС‚РєСЂС‹РІР°РµС‚ С„Р°Р№Р» СЃС‡РёС‚РІР°РµС‚ РІСЃРµ РёР·Р°РµСЂС‹РІР°РµСЊ
+		int x = fileText->IndexOf('.');//РёРЅРґРµРєСЃ РїРµСЂРІРѕРіРѕ РІС…РѕРґР¶РµРЅРёСЏ
+		int y = fileText->LastIndexOf('.');//РёРЅРґРµРєСЃ РїРѕР»СЃР»РµРґРЅРµРіРѕ РІС…РѕР¶РґРµРЅРёСЏ
+		int c = Int32::Parse(fileText->Substring(0, x));//РїРѕРґСЃС‚СЂРѕРєР°
 		int r = Int32::Parse(fileText->Substring(x + 1, y - x - 1));
 		numericUpDown2->Value = c;
 		numericUpDown1->Value = r;

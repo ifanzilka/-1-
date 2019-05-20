@@ -4,7 +4,7 @@ void GameModel::RecreateArray()
 {
 	field = gcnew array <bool, 2>(rows,cols);
 }
-bool GameModel::GetNextStatus(int i, int j) // статус клетки на след уровне
+bool GameModel::GetNextStatus(int i, int j) // СЃС‚Р°С‚СѓСЃ РєР»РµС‚РєРё РЅР° СЃР»РµРґ СѓСЂРѕРІРЅРµ
 {
 	int nc = GetAliveNeighbourCount(i, j);
 	if (Field[i, j]) {
@@ -12,7 +12,7 @@ bool GameModel::GetNextStatus(int i, int j) // статус клетки на след уровне
 	}
 	return nc == 3;
 }
-bool GameModel::GetNeighbourStatus(int i, int j, int k) // статутс соседа К
+bool GameModel::GetNeighbourStatus(int i, int j, int k) // СЃС‚Р°С‚СѓС‚СЃ СЃРѕСЃРµРґР° Рљ
 {
 	int pi = ((i - 1) >= 0) ? i - 1 : (rows - 1);
 	int ni = ((i + 1) < (rows)) ? (i + 1) : 0;
@@ -31,7 +31,7 @@ bool GameModel::GetNeighbourStatus(int i, int j, int k) // статутс соседа К
 	default: return false;
 	}
 }
-int GameModel::GetAliveNeighbourCount(int i, int j) //кол во живых соседей
+int GameModel::GetAliveNeighbourCount(int i, int j) //РєРѕР» РІРѕ Р¶РёРІС‹С… СЃРѕСЃРµРґРµР№
 {
 
 	int cnt = 0;
